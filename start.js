@@ -21,7 +21,7 @@ p.init = function() {
   client.on('navdata', function(navdata) {
     var alt = navdata.demo.altitudeMeters
     self.altitude = alt
-    self.emit('altitude', this.altitude)
+    self.emit('altitude', self.altitude)
 
     // Safety: land if we go higher than 2m
     if (alt > 30) client.land()
