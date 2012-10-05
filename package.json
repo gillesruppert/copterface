@@ -14,5 +14,9 @@
     "copters"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ar-drone": "0.0.2",
+    "opencv": "0.0.6"
+  }
 }
