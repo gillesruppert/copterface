@@ -1,3 +1,4 @@
+var crop = require('./crop');
 
 var Faces = function(client) {
   this.lock_ = false;
@@ -48,8 +49,15 @@ Faces.prototype.tryFaceDetect_ = function() {
          }
          var x = faces[index]
 
+         var buf = crop(this.lastImage_, x.x, x.y, x.width, x.height);
+
+
+         /*
          im.ellipse(x.x + x.width/2, x.y + x.height/2, x.width/2, x.height/2);
          im.save('./out.jpg');
+         */
+
+         fs.writeFile('faces/' + Math.floor(Math.random()*1e6) + '.png', buf, function() {});
 
          // good enough.
          if (x.width > 200) {
