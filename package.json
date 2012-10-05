@@ -18,6 +18,7 @@
   "dependencies": {
     "ar-drone": "0.0.2",
     "opencv": "0.0.6",
-    "tako": "~0.3.0"
+    "tako": "~0.3.0",
+    "imagemagick": "~0.1.3"
   }
 }
