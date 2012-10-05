@@ -62,6 +62,7 @@ Faces.prototype.tryFaceDetect_ = function() {
          // good enough.
          if (x.width > 200) {
            result.picture = true;
+           result.image = buf;
          }
          else {
            result.face = true;
