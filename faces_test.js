@@ -13,7 +13,7 @@ client.createRepl();
 var Faces = require('./faces')
 
 
-var f = new Faces();
+var f = new Faces(clint);
 
 function logStatus() {
   f.status(function(reply) {
