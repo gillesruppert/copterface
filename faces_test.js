@@ -1,6 +1,5 @@
 var arDrone = require('ar-drone');
 var path = require('path');
-var cv = require('opencv');
 var tako = require('tako');
 var app = tako();
 var fs = require('fs');
@@ -13,18 +12,20 @@ client.createRepl();
 var Faces = require('./faces')
 
 
-var f = new Faces(clint);
+var f = new Faces(client);
 
 function logStatus() {
   f.status(function(reply) {
     console.log('reply', reply);
     setTimeout(function(){
       logStatus();
-    }, 100)
+    }, 500)
   })
 }
+setTimeout(function() {
 
-logStatus();
+  logStatus();
+}, 3000)
 
 app.route('/last.png').on('request', function(req, resp){
   resp.write(f.lastImage_ || '');
