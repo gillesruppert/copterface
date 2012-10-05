@@ -15,7 +15,7 @@ var Faces = require('./faces')
 var f = new Faces(client);
 
 client.takeoff();
-client.up(.1);
+client.up(0.1);
 client.after(100, function() {
   this.up(0);
 })
@@ -25,9 +25,9 @@ function getInfo() {
     console.log(s);
     if (s.face) {
       //ar f = s.face.x > 320 ? client.clockwise : client.counterClockwise;
-      client.clockwise(.3);
-      client.front(.1);
-      client.after(200, function() {
+      client.clockwise(0.3);
+      client.front(0.1);
+      client.after(2000, function() {
         this.clockwise(0);
         client.front(0);
         getInfo();
@@ -35,8 +35,8 @@ function getInfo() {
     }
     else if (s.picture) {
       client.animateLeds('blinkRed', 5, 2)
-      client.after(500, function() {
-        this.clockwize(.3);
+      client.after(5000, function() {
+        this.clockwise(0.3);
         this.after(300, function() {
           this.clockwise(0);
           getInfo();
@@ -44,8 +44,8 @@ function getInfo() {
       })
     }
     else if (s.nothing) {
-      client.clockwise(.3);
-      client.after(500, function() {
+      client.clockwise(0.3);
+      client.after(5000, function() {
         this.clockwise(0);
         getInfo();
       })
