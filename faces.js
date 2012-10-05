@@ -55,7 +55,7 @@ Faces.prototype.tryFaceDetect_ = function() {
        }
        else {
          // Only need the biggest one.
-         var index = 0;
+         var index = -1;
          var size = 0;
          for (var i=0;i<faces.length; i++){
            if (faces[i].width > size) {
@@ -63,6 +63,8 @@ Faces.prototype.tryFaceDetect_ = function() {
              index = i;
            }
          }
+         if (index == -1) result.nothing = true;
+         else {
          var x = faces[index]
 
          var buf = crop(self.lastImage_, x.x, x.y, x.width, x.height);
@@ -88,13 +90,13 @@ Faces.prototype.tryFaceDetect_ = function() {
            }
 
 
-
+         }
 
        }
        setTimeout(function() {
          cb(result);
          self.lock_ = false;
-         console.log('unlock');
+         //console.log('unlock');
        }, 100)
      }
   })
