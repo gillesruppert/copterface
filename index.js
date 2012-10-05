@@ -58,14 +58,22 @@ Faces.prototype.tryFaceDetect_ = function() {
            }
          }
          var x = faces[index]
+
          im.ellipse(x.x + x.width/2, x.y + x.height/2, x.width/2, x.height/2);
          im.save('./out.jpg');
 
-         result.face = true;
-         result.x = x.x;
-         result.y = x.y;
-         result.w = x.width;
-         result.h = x.height;
+         // good enough.
+         if (x.width > 200) {
+           result.picture = true;
+         }
+         else {
+           result.face = true;
+           result.x = x.x;
+           result.y = x.y;
+           result.w = x.width;
+           result.h = x.height;
+         }
+
        }
        setTimeout(function() {
          self.lock_ = false;
