@@ -28,7 +28,7 @@ Faces.prototype.status = function(cb) {
   this.cb_ = cb;
 }
 Faces.prototype.tryFaceDetect_ = function() {
-  if (this.lock_ || !this.lastImage_ || !this.cb_ || (new Date() - this.lastTime_) < 5000) return;
+  if (this.lock_ || !this.lastImage_ || !this.cb_) return;
   var cb = this.cb_;
   this.cb_ = null;
   this.lock_ = true;
@@ -95,7 +95,7 @@ Faces.prototype.tryFaceDetect_ = function() {
          cb(result);
          self.lock_ = false;
          console.log('unlock');
-       }, 500)
+       }, 100)
      }
   })
 };

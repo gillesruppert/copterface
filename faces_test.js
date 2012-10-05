@@ -19,13 +19,12 @@ function logStatus() {
     console.log('reply', reply);
     setTimeout(function(){
       logStatus();
-    }, 500)
+    }, 100)
   })
 }
 setTimeout(function() {
-
   logStatus();
-}, 3000)
+}, 1000);
 
 app.route('/last.png').on('request', function(req, resp){
   resp.write(f.lastImage_ || '');
